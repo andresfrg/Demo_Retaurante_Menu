@@ -236,7 +236,7 @@ const products = [
 
 const state = {
   selectedCategory: "all",
-  activeProductId: products[0].id,
+  activeProductId: null,
   selections: {},
   quantity: 1,
   summaryOpen: true,
@@ -261,6 +261,7 @@ const quantityValue = document.getElementById("quantityValue");
 const decreaseQty = document.getElementById("decreaseQty");
 const increaseQty = document.getElementById("increaseQty");
 const addToCart = document.getElementById("addToCart");
+const backToMenu = document.getElementById("backToMenu");
 const cartButton = document.getElementById("cartButton");
 const cartCount = document.getElementById("cartCount");
 const cartDrawer = document.getElementById("cartDrawer");
@@ -281,7 +282,7 @@ function initProduct(product) {
 }
 
 function activeProduct() {
-  return products.find(p => p.id === state.activeProductId);
+  return products.find(p => p.id === state.activeProductId) || null;
 }
 
 function selectedItems(product) {
@@ -359,7 +360,12 @@ function renderProducts() {
       state.activeProductId = product.id;
       state.quantity = 1;
       renderAll();
-      document.getElementById("productPanel").scrollIntoView({behavior:"smooth", block:"nearest"});
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        document.body.classList.add("detail-open");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        document.getElementById("productPanel").scrollIntoView({behavior:"smooth", block:"nearest"});
+      }
     });
     productGrid.appendChild(card);
   });
@@ -419,9 +425,15 @@ function renderChoiceGroup(product, group, groupIndex) {
 
 function renderDetail() {
   const product = activeProduct();
-  if (!product) return;
+  if (!product) {
+    emptyState.classList.remove("hidden");
+    productDetail.classList.add("hidden");
+    document.body.classList.remove("has-selection", "detail-open");
+    return;
+  }
 
   initProduct(product);
+  document.body.classList.add("has-selection");
   emptyState.classList.add("hidden");
   productDetail.classList.remove("hidden");
 
@@ -497,6 +509,7 @@ function addCurrentToCart() {
   }
   state.quantity = 1;
   renderAll();
+  document.body.classList.remove("detail-open");
   openCart();
 }
 
@@ -574,6 +587,10 @@ decreaseQty.addEventListener("click", () => {
 });
 
 addToCart.addEventListener("click", addCurrentToCart);
+backToMenu.addEventListener("click", () => {
+  document.body.classList.remove("detail-open");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 cartButton.addEventListener("click", openCart);
 closeDrawer.addEventListener("click", closeCart);
 drawerBackdrop.addEventListener("click", closeCart);

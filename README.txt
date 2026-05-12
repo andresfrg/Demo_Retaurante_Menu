@@ -1,10 +1,13 @@
-DEMO RELLENITAS Y ALGO MÁS - V13
+DEMO RELLENITAS Y ALGO MÁS - V14
 
 Ajustes incluidos:
-- Si agregas el mismo producto con la misma configuración, el carrito ahora agrupa la cantidad.
-- Si el mismo producto tiene ingredientes/personalización diferente, se muestra como línea separada.
-- Mantiene el mensaje de WhatsApp sin “Total aprox.”.
-- Mantiene el ícono en el botón de WhatsApp y todos los ajustes de v12.
+- En móvil, el título “Rellenitas y Algo Más” queda en una sola línea.
+- La sección de personalización ya no aparece abierta por defecto.
+- En móvil, al tocar “Ver Producto”, se abre una vista tipo pantalla de producto.
+- Se agregó botón “Volver al menú” para evitar confusión de navegación.
+- Al agregar al carrito desde móvil, vuelve al flujo del pedido/carrito.
+- Mantiene agrupación de productos iguales en carrito.
+- Mantiene mensaje de WhatsApp sin “Total aprox.”.
 
 Cambios rápidos:
 - Número de WhatsApp: app.js -> WHATSAPP_NUMBER
