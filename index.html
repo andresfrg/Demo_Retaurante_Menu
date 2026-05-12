@@ -40,7 +40,7 @@
 
         <nav class="category-nav" id="categoryNav" aria-label="Categorías">
           <button class="category active" data-category="all"><span>✨</span>Todos</button>
-          <button class="category" data-category="plato-fuerte"><span>🍽️</span>Platos fuertes</button>
+          <button class="category" data-category="plato-fuerte"><span>🍽️</span>Fuertes</button>
           <button class="category" data-category="snack"><span>🥟</span>Snacks</button>
           <button class="category" data-category="bebida"><span>🥤</span>Bebidas</button>
         </nav>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="product-detail hidden" id="productDetail">
-          <button class="back-to-menu" id="backToMenu" type="button">← Volver al menú</button>
+          <button class="back-to-menu" id="backToMenu" type="button">← Volver</button>
           <div class="detail-top">
             <div>
               <span class="category-pill" id="detailCategory"></span>
@@ -78,16 +78,15 @@
             </div>
           </div>
 
-          <div class="total-bar total-bar-compact">
+          <div class="purchase-row">
             <strong id="totalPrice" class="visually-hidden">$ 0</strong>
             <div class="qty-control" aria-label="Cantidad">
               <button id="decreaseQty" type="button">−</button>
               <strong id="quantityValue">1</strong>
               <button id="increaseQty" type="button">+</button>
             </div>
+            <button class="add-button" id="addToCart" type="button">Agregar</button>
           </div>
-
-          <button class="add-button" id="addToCart" type="button">Agregar al pedido</button>
         </div>
       </aside>
     </main>

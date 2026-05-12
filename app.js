@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "573000000000";
+const WHATSAPP_NUMBER = "573005592518";
 
 const formatCOP = (value) =>
   new Intl.NumberFormat("es-CO", {
@@ -11,7 +11,7 @@ const products = [
   {
     id: "frijolada",
     category: "plato-fuerte",
-    categoryLabel: "Plato fuerte",
+    categoryLabel: "Fuerte",
     title: "Frijolada Saludable",
     price: 15300,
     image: "assets/frijolada.jpg",
@@ -61,7 +61,7 @@ const products = [
   {
     id: "pollo",
     category: "plato-fuerte",
-    categoryLabel: "Plato fuerte",
+    categoryLabel: "Fuerte",
     title: "Pollo Grill Saludable",
     price: 16500,
     image: "assets/pollo.jpg",
@@ -107,7 +107,7 @@ const products = [
   {
     id: "bowl",
     category: "plato-fuerte",
-    categoryLabel: "Plato fuerte",
+    categoryLabel: "Fuerte",
     title: "Bowl Vegetariano",
     price: 14900,
     image: "assets/bowl.jpg",
@@ -464,7 +464,7 @@ function renderDetail() {
   totalPrice.textContent = formatCOP(total);
   quantityValue.textContent = state.quantity;
 
-  addToCart.textContent = `Agregar al pedido · ${formatCOP(total)}`;
+  addToCart.textContent = `Agregar · ${formatCOP(total)}`;
 }
 
 function renderAll() {
@@ -529,7 +529,7 @@ function renderCart() {
             <h3>${item.qty} × ${item.title}</h3>
             <strong>${formatCOP(item.total)}</strong>
           </div>
-          <button type="button" data-remove="${item.id}">Quitar</button>
+          <button type="button" data-remove="${item.id}">Quitar 1</button>
         </div>
         <p>${item.details}</p>
       </div>
@@ -538,7 +538,16 @@ function renderCart() {
 
   cartItems.querySelectorAll("[data-remove]").forEach(btn => {
     btn.addEventListener("click", () => {
-      state.cart = state.cart.filter(item => item.id !== btn.dataset.remove);
+      const item = state.cart.find(line => line.id === btn.dataset.remove);
+      if (!item) return;
+
+      if (item.qty > 1) {
+        item.qty -= 1;
+        item.total = item.qty * item.unitTotal;
+      } else {
+        state.cart = state.cart.filter(line => line.id !== btn.dataset.remove);
+      }
+
       renderCart();
     });
   });
