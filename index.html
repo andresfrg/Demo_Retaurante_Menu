@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rellenitas y Algo Más | Menú Digital</title>
+  <meta name="description" content="Menú digital de Rellenitas y Algo Más" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="brand-header">
+      <div class="brand-lockup" aria-label="Rellenitas y Algo Más">
+        <span class="leaf">❧</span>
+        <div>
+          <strong>Rellenitas y Algo Más</strong>
+          <small>Sabores auténticos que conservan la tradición</small>
+        </div>
+        <span class="leaf">❧</span>
+      </div>
+
+      <button class="cart-button" id="cartButton" type="button" aria-label="Ver pedido">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-text">Pedido</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </header>
+
+    <main class="main-layout">
+      <section class="menu-panel">
+        <div class="section-head">
+          <div>
+            <h1>Nuestros productos</h1>
+            <p>100% casero · sin químicos · con amor</p>
+          </div>
+        </div>
+
+        <nav class="category-nav" id="categoryNav" aria-label="Categorías">
+          <button class="category active" data-category="all"><span>✨</span>Todos</button>
+          <button class="category" data-category="plato-fuerte"><span>🍽️</span>Platos fuertes</button>
+          <button class="category" data-category="snack"><span>🥟</span>Snacks</button>
+          <button class="category" data-category="bebida"><span>🥤</span>Bebidas</button>
+        </nav>
+
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <aside class="product-panel" id="productPanel">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-logo">☘</div>
+          <h2>Selecciona un producto</h2>
+          <p>Elige un plato para personalizarlo, revisar ingredientes y agregarlo al pedido.</p>
+        </div>
+
+        <div class="product-detail hidden" id="productDetail">
+          <div class="detail-top">
+            <div>
+              <span class="category-pill" id="detailCategory"></span>
+              <h2 id="detailTitle"></h2>
+              <p id="detailSubtitle"></p>
+            </div>
+          </div>
+
+          <div class="choice-stack" id="choiceStack"></div>
+
+          <div class="selection-summary" id="summaryBox">
+            <button class="summary-toggle" id="summaryToggle" type="button">
+              <span>Resumen de tu elección</span>
+              <strong id="summaryToggleText">Ocultar⌃</strong>
+            </button>
+            <div class="summary-content" id="summaryContent">
+              <div class="summary-ingredients" id="summaryIngredients"></div>
+              <div class="weight-row" id="weightRow"></div>
+            </div>
+          </div>
+
+          <div class="total-bar total-bar-compact">
+            <strong id="totalPrice" class="visually-hidden">$ 0</strong>
+            <div class="qty-control" aria-label="Cantidad">
+              <button id="decreaseQty" type="button">−</button>
+              <strong id="quantityValue">1</strong>
+              <button id="increaseQty" type="button">+</button>
+            </div>
+          </div>
+
+          <button class="add-button" id="addToCart" type="button">Agregar al pedido</button>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+  <aside class="cart-drawer hidden" id="cartDrawer" aria-label="Pedido actual">
+    <div class="drawer-head">
+      <div>
+        <span class="category-pill">Tu pedido</span>
+        <h2>Resumen</h2>
+      </div>
+      <button class="close-drawer" id="closeDrawer" type="button">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="drawer-total">
+      <span>Total pedido</span>
+      <strong id="cartTotal">$ 0</strong>
+    </div>
+    <a class="whatsapp-button" id="sendWhatsApp" target="_blank" rel="noopener noreferrer"><span class="wa-icon">☘</span><span>Enviar pedido por WhatsApp</span></a>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
