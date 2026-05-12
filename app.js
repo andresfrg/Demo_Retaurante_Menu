@@ -529,25 +529,40 @@ function renderCart() {
             <h3>${item.qty} × ${item.title}</h3>
             <strong>${formatCOP(item.total)}</strong>
           </div>
-          <button type="button" data-remove="${item.id}">Quitar 1</button>
+          <div class="cart-qty-control" aria-label="Cantidad en carrito">
+            <button type="button" data-cart-minus="${item.id}">−</button>
+            <span>${item.qty}</span>
+            <button type="button" data-cart-plus="${item.id}">+</button>
+          </div>
         </div>
         <p>${item.details}</p>
       </div>
     `).join("");
   }
 
-  cartItems.querySelectorAll("[data-remove]").forEach(btn => {
+  cartItems.querySelectorAll("[data-cart-minus]").forEach(btn => {
     btn.addEventListener("click", () => {
-      const item = state.cart.find(line => line.id === btn.dataset.remove);
+      const item = state.cart.find(line => line.id === btn.dataset.cartMinus);
       if (!item) return;
 
       if (item.qty > 1) {
         item.qty -= 1;
         item.total = item.qty * item.unitTotal;
       } else {
-        state.cart = state.cart.filter(line => line.id !== btn.dataset.remove);
+        state.cart = state.cart.filter(line => line.id !== btn.dataset.cartMinus);
       }
 
+      renderCart();
+    });
+  });
+
+  cartItems.querySelectorAll("[data-cart-plus]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = state.cart.find(line => line.id === btn.dataset.cartPlus);
+      if (!item) return;
+
+      item.qty += 1;
+      item.total = item.qty * item.unitTotal;
       renderCart();
     });
   });

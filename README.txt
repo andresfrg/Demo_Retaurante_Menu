@@ -1,14 +1,14 @@
-DEMO RELLENITAS Y ALGO MÁS - V16
+DEMO RELLENITAS Y ALGO MÁS - V17
 
 Ajustes incluidos:
-- Categoría superior “Platos fuertes” cambia a “Fuertes” para caber mejor en una sola fila.
-- Se reemplazó la imagen del Bowl Vegetariano para eliminar texto embebido tipo “Desde $14.900”.
-- En producto móvil, cantidad queda a la izquierda y botón “Agregar” a la derecha.
-- “Volver al menú” cambia a “Volver”.
-- En el carrito, “Quitar 1” resta una unidad si el producto agrupado tiene cantidad mayor a 1; solo elimina la línea cuando queda en 0.
-- El resumen del carrito ya no genera scroll grande innecesario de entrada; solo aparece scroll si el pedido crece.
-- Número de WhatsApp configurado con Innovaryx: 573005592518.
-- Mantiene agrupación de productos iguales y WhatsApp sin “Total aprox.”.
+- Nueva imagen para Bowl Vegetariano.
+- Títulos de platos estandarizados a una sola línea para no mover alturas ni botones.
+- Cards con altura más consistente.
+- En carrito, cada línea ahora tiene control - / cantidad / +.
+- El botón de WhatsApp usa un ícono estilo WhatsApp en SVG.
+- Mantiene agrupación de productos iguales.
+- Mantiene mensaje de WhatsApp sin “Total aprox.”.
+- Número de WhatsApp de ejemplo: 573005592518.
 
 Cambios rápidos:
 - Número de WhatsApp: app.js -> WHATSAPP_NUMBER
