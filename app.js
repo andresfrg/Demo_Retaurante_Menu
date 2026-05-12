@@ -110,7 +110,7 @@ const products = [
     categoryLabel: "Fuerte",
     title: "Bowl Vegetariano",
     price: 14900,
-    image: "assets/bowl.jpg",
+    image: "assets/bowl-photo.jpg",
     description: "Nutritivo, fresco y lleno de sabor.",
     cardDescription: "Vegetales, granos y acompañamientos.",
     groups: [
