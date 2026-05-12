@@ -1,13 +1,14 @@
-DEMO RELLENITAS Y ALGO MÁS - V14
+DEMO RELLENITAS Y ALGO MÁS - V15
 
 Ajustes incluidos:
-- En móvil, el título “Rellenitas y Algo Más” queda en una sola línea.
-- La sección de personalización ya no aparece abierta por defecto.
-- En móvil, al tocar “Ver Producto”, se abre una vista tipo pantalla de producto.
-- Se agregó botón “Volver al menú” para evitar confusión de navegación.
-- Al agregar al carrito desde móvil, vuelve al flujo del pedido/carrito.
-- Mantiene agrupación de productos iguales en carrito.
-- Mantiene mensaje de WhatsApp sin “Total aprox.”.
+- En móvil, el botón de WhatsApp del carrito queda visible incluso con la barra inferior del navegador.
+- Nueva imagen para Bowl Vegetariano, menos estirada.
+- Se corrigió el borde/blanco al final de pantalla en móvil.
+- Categorías más compactas en una sola fila.
+- En móvil, los productos se muestran en 2 columnas para ver más menú sin tanto scroll.
+- Cards más compactas para celular.
+- Mantiene navegación móvil tipo producto con botón volver.
+- Mantiene carrito agrupado y mensaje de WhatsApp sin “Total aprox.”.
 
 Cambios rápidos:
 - Número de WhatsApp: app.js -> WHATSAPP_NUMBER

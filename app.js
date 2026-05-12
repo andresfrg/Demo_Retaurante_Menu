@@ -362,7 +362,7 @@ function renderProducts() {
       renderAll();
       if (window.matchMedia("(max-width: 760px)").matches) {
         document.body.classList.add("detail-open");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "auto" });
       } else {
         document.getElementById("productPanel").scrollIntoView({behavior:"smooth", block:"nearest"});
       }
@@ -555,6 +555,7 @@ function renderCart() {
 function openCart() {
   cartDrawer.classList.remove("hidden");
   drawerBackdrop.classList.remove("hidden");
+  cartDrawer.scrollTop = 0;
 }
 
 function closeCart() {
